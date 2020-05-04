@@ -1,0 +1,8 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>QuoteMan_b0._1.Core</RootNamespace>
+  </PropertyGroup>
+
+</Project>
