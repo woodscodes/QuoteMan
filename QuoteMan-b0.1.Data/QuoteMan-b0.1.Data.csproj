@@ -5,4 +5,8 @@
     <RootNamespace>QuoteMan_b0._1.Data</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\QuoteMan-b0.1.Core\QuoteMan-b0.1.Core.csproj" />
+  </ItemGroup>
+
 </Project>
