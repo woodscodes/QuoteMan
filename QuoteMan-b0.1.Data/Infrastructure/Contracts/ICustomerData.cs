@@ -7,6 +7,7 @@ namespace QuoteMan_b0._1.Data.Infrastructure.Contracts
 {
     public interface ICustomerData
     {
+        IEnumerable<Customer> GetCustomersByName(string name = null);
         Customer FindCustomerById(int id);
     }
 }

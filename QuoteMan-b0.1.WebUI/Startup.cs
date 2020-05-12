@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using QuoteMan_b0._1.Data.Infrastructure.Contracts;
+using QuoteMan_b0._1.Data.Infrastructure.Repositories.InMemory;
 
 namespace QuoteMan_b0._1.WebUI
 {
@@ -23,6 +25,9 @@ namespace QuoteMan_b0._1.WebUI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSingleton<ICustomerData, InMemoryCustomerRepo>();
+            services.AddSingleton<IQuoteData, InMemoryQuoteRepo>();
+
             services.AddRazorPages();
         }
 

@@ -25,5 +25,13 @@ namespace QuoteMan_b0._1.Data.Infrastructure.Repositories.InMemory
         {
             return _customers.SingleOrDefault(c => c.CustomerId == id);
         }
+
+        public IEnumerable<Customer> GetCustomersByName(string name = null)
+        {
+            return from c in _customers
+                   where string.IsNullOrEmpty(name) || c.LastName.StartsWith(name) || c.FirstName.StartsWith(name)
+                   orderby c.LastName descending
+                   select c;
+        }
     }
 }

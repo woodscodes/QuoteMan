@@ -1,0 +1,8 @@
+﻿.card {
+    width: 33%;
+    display: inline-block;
+}
+
+.card-subtitle {
+    margin: 0;
+}

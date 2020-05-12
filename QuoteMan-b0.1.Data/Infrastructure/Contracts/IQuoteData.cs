@@ -5,7 +5,7 @@ using System.Text;
 
 namespace QuoteMan_b0._1.Data.Infrastructure.Contracts
 {
-    interface IQuoteData
+    public interface IQuoteData
     {
         IEnumerable<Quote> GetQuotesByCustomerId(int id);
     }

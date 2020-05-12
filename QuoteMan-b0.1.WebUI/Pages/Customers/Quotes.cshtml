@@ -1,0 +1,23 @@
+﻿@page "{customerId:int}"
+@model QuoteMan_b0._1.WebUI.Pages.Customers.QuotesModel
+@{
+    ViewData["Title"] = "Quotes";
+}
+
+<h1>Quotes for @($"{@Model.Customer.Title} {@Model.Customer.FirstName} {@Model.Customer.LastName}")</h1>
+
+<div class="container">
+    @foreach (var quote in Model.Quotes)
+    {
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">@quote.Price.ToString("C2")</h5>
+                <h6 class="card-subtitle">@quote.Status</h6>
+                <h6 class="card-subtitle">@quote.DateGiven.ToShortDateString()</h6>
+                <h6 class="card-subtitle">@($"{@quote.Vehicle.Make} {@quote.Vehicle.Model}")</h6>
+                <p class="card-text">@quote.Description</p>
+            </div>
+        </div>
+    }
+</div>
+

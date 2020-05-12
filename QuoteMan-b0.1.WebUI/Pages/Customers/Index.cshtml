@@ -1,0 +1,44 @@
+﻿@page
+@model QuoteMan_b0._1.WebUI.Pages.Customers.IndexModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>All customers</h1>
+
+<form method="get">
+    <div class="form-group">
+        <div class="input-group">
+            <input class="form-control" type="search" placeholder="Search for a customer here ..." asp-for="SearchTerm" />
+            <span class="input-group-btn">
+                <button class="btn btn-default">
+                    <i class="fas fa-search"></i>
+                </button>
+            </span>
+        </div>
+    </div>
+</form>
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone number</th>
+            <th>Quotes</th>
+        </tr>
+    </thead>  
+
+    <tbody>
+        @foreach (var customer in Model.Customers)
+        {
+            <tr>
+                <td>@($"{@customer.Title} {@customer.FirstName} {@customer.LastName}")</td>
+                <td>@customer.Email</td>
+                <td>@customer.PhoneNumber</td>
+                <td><a asp-page="/Customers/Quotes" asp-route-customerId="@customer.CustomerId">Quotes</a></td>
+            </tr>        
+        }
+    </tbody>    
+</table>
+

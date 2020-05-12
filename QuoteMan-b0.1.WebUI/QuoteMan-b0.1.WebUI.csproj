@@ -5,4 +5,12 @@
     <RootNamespace>QuoteMan_b0._1.WebUI</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\QuoteMan-b0.1.Data\QuoteMan-b0.1.Data.csproj" />
+  </ItemGroup>
+
 </Project>
