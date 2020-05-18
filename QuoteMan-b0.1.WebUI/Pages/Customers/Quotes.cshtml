@@ -5,6 +5,11 @@
 }
 
 <h1>Quotes for @($"{@Model.Customer.Title} {@Model.Customer.FirstName} {@Model.Customer.LastName}")</h1>
+<span class="btn">
+    <button class="btn btn-default">
+        <i class="fas fa-plus"></i>
+    </button>
+</span>
 
 <div class="container">
     @foreach (var quote in Model.Quotes)

@@ -1,0 +1,44 @@
+﻿@page
+@model QuoteMan_b0._1.WebUI.Pages.Customers.CreateModel
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<form method="post">
+    <!-- <input type="hidden" asp-for="Customer.CustomerId" /> -->
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="form-group">
+        <label asp-for="Customer.Title"></label>
+        <select class="form-control" asp-for="Customer.Title" asp-items="@Model.Titles"></select>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Customer.FirstName"></label>
+        <div class="input-group">
+            <input class="form-control" asp-for="Customer.FirstName" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="Customer.LastName"></label>
+        <div class="input-group">
+            <input class="form-control" asp-for="Customer.LastName" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="Customer.Email"></label>
+        <div class="input-group">
+            <input type="email" class="form-control" asp-for="Customer.Email" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="Customer.PhoneNumber"></label>
+        <div class="input-group">
+            <input class="form-control" asp-for="Customer.PhoneNumber" />
+        </div>
+    </div>
+
+    <button class="btn btn-primary" type="submit">Save</button>
+</form>

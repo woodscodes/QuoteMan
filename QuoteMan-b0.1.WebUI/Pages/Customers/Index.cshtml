@@ -21,23 +21,27 @@
 
 <table class="table">
     <thead class="thead-dark">
-        <tr>
+        <tr>            
             <th>Name</th>
             <th>Email</th>
             <th>Phone number</th>
-            <th>Quotes</th>
+            <th>Options</th>
         </tr>
     </thead>  
 
     <tbody>
         @foreach (var customer in Model.Customers)
         {
-            <tr>
-                <td>@($"{@customer.Title} {@customer.FirstName} {@customer.LastName}")</td>
-                <td>@customer.Email</td>
-                <td>@customer.PhoneNumber</td>
-                <td><a asp-page="/Customers/Quotes" asp-route-customerId="@customer.CustomerId">Quotes</a></td>
-            </tr>        
+        <tr>
+
+            <td>@($"{@customer.Title} {@customer.FirstName} {@customer.LastName}")</td>
+            <td>@customer.Email</td>
+            <td>@customer.PhoneNumber</td>
+            <td>              
+               <a class="btn" role="button" asp-page="/Customers/Edit" asp-route-customerId="@customer.CustomerId"><i class="fas fa-user-edit"></i></a>
+               <a class="btn" role="button" asp-page="/Customers/Quotes" asp-route-customerId="@customer.CustomerId"><i class="fas fa-search-dollar"></i></a>            
+            </td>
+        </tr>        
         }
     </tbody>    
 </table>

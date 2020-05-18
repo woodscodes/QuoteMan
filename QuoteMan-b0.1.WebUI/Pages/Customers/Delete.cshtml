@@ -1,0 +1,13 @@
+﻿@page "{customerId:int}"
+@model QuoteMan_b0._1.WebUI.Pages.Customers.DeleteModel
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Are you sure you want to delete @($"{Model.Customer.Title} {Model.Customer.FirstName} {Model.Customer.LastName}?") </h1>
+
+<form method="post">
+    <button class="btn btn-danger" type="submit">Delete</button>
+    <a class="btn btn-primary" role="button" asp-page="/Customers/Index">Go back</a>
+</form>
+

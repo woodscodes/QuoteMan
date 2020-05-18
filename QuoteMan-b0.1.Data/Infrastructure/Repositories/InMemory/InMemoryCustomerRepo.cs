@@ -21,6 +21,27 @@ namespace QuoteMan_b0._1.Data.Infrastructure.Repositories.InMemory
             };
         }
 
+        public int CommitChanges()
+        {
+            return 0;
+        }
+
+        public void CreateCustomer(Customer customer)
+        {
+            customer.CustomerId = _customers.Max(c => c.CustomerId) + 1;
+            _customers.Add(customer);
+        }
+
+        public void DeleteCustomer(int id)
+        {
+            var customerToDelete = _customers.Find(c => c.CustomerId == id);
+
+            if (customerToDelete == null)
+                throw new Exception("Customer not found");
+            else            
+                _customers.Remove(customerToDelete);
+        }
+
         public Customer FindCustomerById(int id)
         {
             return _customers.SingleOrDefault(c => c.CustomerId == id);
@@ -33,5 +54,24 @@ namespace QuoteMan_b0._1.Data.Infrastructure.Repositories.InMemory
                    orderby c.LastName descending
                    select c;
         }
+
+        public Customer UpdateCustomer(Customer customer)
+        {
+            var customerToUpdate = _customers.Find(c => c.CustomerId == customer.CustomerId);
+
+            if (customerToUpdate == null)
+                throw new InvalidOperationException("Customer not found");
+            else
+            {
+                customerToUpdate.Title = customer.Title;
+                customerToUpdate.FirstName = customer.FirstName;
+                customerToUpdate.LastName = customer.LastName;
+                customerToUpdate.Email = customer.Email;
+                customerToUpdate.PhoneNumber = customer.PhoneNumber;
+                customerToUpdate.Quotes = customer.Quotes;
+                return customerToUpdate;
+            }
+        }
+
     }
 }

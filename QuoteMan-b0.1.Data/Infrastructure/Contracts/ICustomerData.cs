@@ -9,5 +9,9 @@ namespace QuoteMan_b0._1.Data.Infrastructure.Contracts
     {
         IEnumerable<Customer> GetCustomersByName(string name = null);
         Customer FindCustomerById(int id);
+        Customer UpdateCustomer(Customer customer);
+        void CreateCustomer(Customer customer);
+        void DeleteCustomer(int id);
+        int CommitChanges();
     }
 }

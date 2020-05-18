@@ -13,4 +13,8 @@
     <ProjectReference Include="..\QuoteMan-b0.1.Data\QuoteMan-b0.1.Data.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Pages\Home\" />
+  </ItemGroup>
+
 </Project>
