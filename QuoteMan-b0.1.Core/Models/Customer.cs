@@ -29,7 +29,7 @@ namespace QuoteMan_b0._1.Core.Models
         [Display(Name = "Phone number")]
         [Required(ErrorMessage = "A phone number is required")]
         [MaxLength(15)]
-        [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "A valid phone number is required")]
+        [MinLength(11, ErrorMessage = "A valid phone number is required")]
         public string PhoneNumber { get; set; }
 
         public List<Quote> Quotes { get; set; }

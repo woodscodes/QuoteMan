@@ -21,28 +21,38 @@
 
 <table class="table">
     <thead class="thead-dark">
-        <tr>            
+        <tr>
+            <th class="dont-display"></th>
             <th>Name</th>
             <th>Email</th>
             <th>Phone number</th>
-            <th>Options</th>
         </tr>
     </thead>  
 
     <tbody>
         @foreach (var customer in Model.Customers)
-        {
-        <tr>
+        {       
 
+        <tr class="context-menu-button">
+
+            <td class="customer-id-grabber dont-display">@customer.CustomerId</td>
             <td>@($"{@customer.Title} {@customer.FirstName} {@customer.LastName}")</td>
             <td>@customer.Email</td>
             <td>@customer.PhoneNumber</td>
-            <td>              
-               <a class="btn" role="button" asp-page="/Customers/Edit" asp-route-customerId="@customer.CustomerId"><i class="fas fa-user-edit"></i></a>
-               <a class="btn" role="button" asp-page="/Customers/Quotes" asp-route-customerId="@customer.CustomerId"><i class="fas fa-search-dollar"></i></a>            
-            </td>
+            <!-- Need to take id from this customer and dynamically populate the route with attribute for the js function -->
         </tr>        
         }
     </tbody>    
 </table>
+
+<div id="context-menu-display" class="context-menu dont-display">
+    <ul class="context-menu-list">
+        <li><a id="route-to-edit" class="btn" role="button"><i class="fas fa-user-edit"></i> <span>Edit customer</span></a></li>
+        <li><a id="route-to-newquote" href="./dummy.html"><i class="fas fa-file-invoice-dollar"></i> <span>Add a quote</span></a></li>
+        <li><a id="route-to-pipeline" class="btn" role="button"><i class="fas fa-funnel-dollar"></i> <span>Pipeline for this customer</span></a></li>
+    </ul>
+</div>
+
+
+
 

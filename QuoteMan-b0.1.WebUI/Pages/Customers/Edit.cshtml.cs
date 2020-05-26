@@ -39,6 +39,8 @@ namespace QuoteMan_b0._1.WebUI.Pages.Customers
 
         public IActionResult OnPost()
         {
+            Titles = _htmlHelper.GetEnumSelectList<TitleType>();
+
             if (ModelState.IsValid)
             {
                 _customerData.UpdateCustomer(Customer);
@@ -46,7 +48,7 @@ namespace QuoteMan_b0._1.WebUI.Pages.Customers
                 return RedirectToPage("/Customers/Index");
             }
             else
-                return RedirectToPage(Customer);
+                return Page();
         }
     }
 }

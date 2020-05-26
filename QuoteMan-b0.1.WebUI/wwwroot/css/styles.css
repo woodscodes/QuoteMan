@@ -7,3 +7,52 @@
     margin: 0;
 }
 
+.context-menu {
+    border: 1px solid #3F5454;
+    background-color: #F5FFFF;
+    border-radius: 5px;
+    width: auto;
+    position: absolute;
+}
+
+.dont-display {
+    display: none;
+}
+
+.customer-id-grabber {
+    padding: 0px;
+}
+
+.context-menu-button {
+    padding: 0px;
+}
+
+.context-menu-list {
+    padding-left: 5px;
+    list-style-type: none;
+    font-size: 1rem;
+}
+
+    .context-menu-list li {
+        padding: 2px;
+        margin-top: 2px;
+    }
+
+    .context-menu-list a {
+        text-decoration: none;
+        color: #3F5454;
+        padding-right: 10px;
+    }
+
+        .context-menu-list a span {
+            margin-left: 8px;
+        }
+
+        .context-menu-list a i {
+            text-align: center;
+            width: 15px;
+        }
+
+
+
+
