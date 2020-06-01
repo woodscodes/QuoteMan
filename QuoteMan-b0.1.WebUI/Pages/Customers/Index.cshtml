@@ -1,10 +1,11 @@
 ﻿@page
 @model QuoteMan_b0._1.WebUI.Pages.Customers.IndexModel
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "All customers";
 }
 
-<h1>All customers</h1>
+<h1 class="custom-header">All customers</h1>
+<a class="sub-navi btn" role="button" asp-page="/Customers/Create"><span class="badge badge-primary">Add new</span></a>
 
 <form method="get">
     <div class="form-group">
@@ -36,7 +37,7 @@
         <tr class="context-menu-button">
 
             <td class="customer-id-grabber dont-display">@customer.CustomerId</td>
-            <td>@($"{@customer.Title} {@customer.FirstName} {@customer.LastName}")</td>
+            <td class="customer-name-grabber">@($"{@customer.Title} {@customer.FirstName} {@customer.LastName}")</td>
             <td>@customer.Email</td>
             <td>@customer.PhoneNumber</td>
             <!-- Need to take id from this customer and dynamically populate the route with attribute for the js function -->
@@ -47,11 +48,14 @@
 
 <div id="context-menu-display" class="context-menu dont-display">
     <ul class="context-menu-list">
+        <li id="name-of-customer"></li>
         <li><a id="route-to-edit" class="btn" role="button"><i class="fas fa-user-edit"></i> <span>Edit customer</span></a></li>
         <li><a id="route-to-newquote" href="./dummy.html"><i class="fas fa-file-invoice-dollar"></i> <span>Add a quote</span></a></li>
         <li><a id="route-to-pipeline" class="btn" role="button"><i class="fas fa-funnel-dollar"></i> <span>Pipeline for this customer</span></a></li>
     </ul>
 </div>
+
+<script src="~/js/rightclickmenu.js"></script>
 
 
 

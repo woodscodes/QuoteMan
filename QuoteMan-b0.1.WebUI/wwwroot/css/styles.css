@@ -1,10 +1,33 @@
-﻿.card {
+﻿.navbar-brand {
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-shadow: 2px 1px #A1ADAA;
+}
+
+.main-navi {
+    font-size: 1rem;
+}
+
+.card {
     width: 33%;
     display: inline-block;
 }
 
+.custom-header {
+    margin-bottom: 2px;
+}
+
+.sub-navi {
+    padding: 0px;
+    padding-bottom: 3px;
+}
+
 .card-subtitle {
     margin: 0;
+}
+
+#name-of-customer {
+    font-size: 1.25rem;
 }
 
 .context-menu {

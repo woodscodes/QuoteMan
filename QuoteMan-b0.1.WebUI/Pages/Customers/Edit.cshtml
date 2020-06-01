@@ -4,7 +4,7 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
+<h2>Editing customer <strong>@($"{Model.Customer.Title} {Model.Customer.FirstName} {Model.Customer.LastName}")</strong> </h2>
 
 <form method="post">
     <input type="hidden" asp-for="Customer.CustomerId" />

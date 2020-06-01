@@ -22,17 +22,22 @@ function showContextMenu() {
     }
 };
 
-function getCustomerId(row) {
+function setCustomerId(row) {
+    'use strict';
     const rowElements = row.children;
 
     for (const element of rowElements) {
         if (element.classList.contains('customer-id-grabber')) {
             setIdRoute(element.innerHTML);  
         }
+        if (element.classList.contains('customer-name-grabber')) {
+            setNameOfCustomer(element.innerHTML);
+        }
     }
 }
 
 function setIdRoute(value) {
+    'use strict';
     const editCustomerAnchor = document.getElementById('route-to-edit');
     const viewPipelineAnchor = document.getElementById('route-to-pipeline');
 
@@ -40,10 +45,18 @@ function setIdRoute(value) {
     viewPipelineAnchor.href = `./Quotes/${value}`;
 }
 
+function setNameOfCustomer (value) {
+    'use strict'
+    const customerNameArea = document.getElementById('name-of-customer');
+
+    customerNameArea.innerHTML = value; 
+}
+
 for (const row of contextMenuButtons) {
+    'use strict';
     row.addEventListener('contextmenu', (ev) => {
         ev.preventDefault();
-        getCustomerId(row);
+        setCustomerId(row);
         showContextMenu();
         displayAtMousePointer(ev);
         return false;
