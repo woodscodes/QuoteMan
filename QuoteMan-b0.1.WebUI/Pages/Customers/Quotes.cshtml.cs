@@ -16,6 +16,7 @@ namespace QuoteMan_b0._1.WebUI.Pages.Customers
 
         public IEnumerable<Quote> Quotes { get; set; }
         public Customer Customer { get; set; }
+        public string Message { get; set; }
 
         public QuotesModel(ICustomerData customerData, IQuoteData quoteData)
         {
@@ -27,6 +28,17 @@ namespace QuoteMan_b0._1.WebUI.Pages.Customers
         {
             Customer = _customerData.FindCustomerById(customerId);
             Quotes = _quoteData.GetQuotesByCustomerId(customerId);
+            Message = MessageToDisplay(Quotes);
+        }
+
+        public string MessageToDisplay(IEnumerable<Quote> quotes)
+        {
+            if(quotes.Count() != 0)
+            {
+                return ($"Quotes for {Customer.Title} {Customer.FirstName} {Customer.LastName}");
+            }
+
+            return ($"No quotes found for {Customer.Title} {Customer.FirstName} {Customer.LastName}");
         }
     }
 }

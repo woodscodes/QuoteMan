@@ -8,5 +8,8 @@ namespace QuoteMan_b0._1.Data.Infrastructure.Contracts
     public interface IQuoteData
     {
         IEnumerable<Quote> GetQuotesByCustomerId(int id);
+        Quote GetQuoteById(int id);
+        Quote UpdateQuote(Quote quote);
+        int CommitChanges();
     }
 }

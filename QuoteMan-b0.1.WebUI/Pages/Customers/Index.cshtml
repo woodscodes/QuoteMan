@@ -1,7 +1,7 @@
 ﻿@page
 @model QuoteMan_b0._1.WebUI.Pages.Customers.IndexModel
 @{
-    ViewData["Title"] = "All customers";
+    ViewData["Title"] = "Customers";
 }
 
 <h1 class="custom-header">All customers</h1>
@@ -40,7 +40,6 @@
             <td class="customer-name-grabber">@($"{@customer.Title} {@customer.FirstName} {@customer.LastName}")</td>
             <td>@customer.Email</td>
             <td>@customer.PhoneNumber</td>
-            <!-- Need to take id from this customer and dynamically populate the route with attribute for the js function -->
         </tr>        
         }
     </tbody>    
@@ -49,9 +48,10 @@
 <div id="context-menu-display" class="context-menu dont-display">
     <ul class="context-menu-list">
         <li id="name-of-customer"></li>
-        <li><a id="route-to-edit" class="btn" role="button"><i class="fas fa-user-edit"></i> <span>Edit customer</span></a></li>
-        <li><a id="route-to-newquote" href="./dummy.html"><i class="fas fa-file-invoice-dollar"></i> <span>Add a quote</span></a></li>
-        <li><a id="route-to-pipeline" class="btn" role="button"><i class="fas fa-funnel-dollar"></i> <span>Pipeline for this customer</span></a></li>
+        <li><a id="route-to-edit" class="btn" role="button"><i class="fas fa-user-edit"></i><span>Edit customer</span></a></li>
+        <li><a id="route-to-newquote" href="./dummy.html"><i class="fas fa-file-invoice-dollar"></i><span>Add a quote</span></a></li>
+        <li><a id="route-to-pipeline" class="btn" role="button"><i class="fas fa-funnel-dollar"></i><span>Pipeline for this customer</span></a></li>
+        <li><a id="route-to-delete" class="btn" role="button"><i class="fas fa-trash-alt"></i><span>Delete customer</span></a></li>
     </ul>
 </div>
 

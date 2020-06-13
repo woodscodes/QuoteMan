@@ -1,8 +1,58 @@
-﻿@page
+﻿@page "{quoteId:int}"
 @model QuoteMan_b0._1.WebUI.Pages.Quotes.EditModel
 @{
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
+<h1>Editing <strong>Quote#@($"{@Model.Quote.QuoteId}")</strong></h1>
+
+<h5>For customer <strong>@($"{Model.Quote.Customer.Title} {Model.Quote.Customer.FirstName} {Model.Quote.Customer.LastName}")</strong></h5>
+<h5>Originally given on <strong>@Model.Quote.DateGiven.ToShortDateString()</strong></h5>
+<h5>For amount <strong>@Model.Quote.Price.ToString("C")</strong></h5>
+
+<form method="post">
+    <input type="hidden" asp-for="Quote.QuoteId" />
+    <input type="hidden" asp-for="Quote.DateGiven" />
+    <input type="hidden" asp-for="Quote.CustomerId" />
+    <input type="hidden" asp-for="Quote.Customer.CustomerId" />
+    <input type="hidden" asp-for="Quote.Customer.Title" />
+    <input type="hidden" asp-for="Quote.Customer.FirstName" />
+    <input type="hidden" asp-for="Quote.Customer.LastName" />
+    <input type="hidden" asp-for="Quote.Customer.Email" />
+    <input type="hidden" asp-for="Quote.Customer.PhoneNumber" />
+
+    <div class="form-group">
+        <label asp-for="Quote.Description"></label>
+        <div class="input-group">
+            <textarea class="form-control" asp-for="Quote.Description"></textarea>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Quote.Vehicle.Make"></label>
+        <div class="input-group">
+            <input class="form-control" asp-for="Quote.Vehicle.Make" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Quote.Vehicle.Model"></label>
+        <div class="input-group">
+            <input class="form-control" asp-for="Quote.Vehicle.Model" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Quote.Price"></label>
+        <div class="input-group">
+            <input class="form-control" asp-for="Quote.Price" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="Quote.Status"></label>
+        <select class="form-control" asp-for="Quote.Status" asp-items="@Model.Statuses"></select>
+    </div>
+
+    <button class="btn btn-primary" type="submit">Save</button>
+</form>
 

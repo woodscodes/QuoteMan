@@ -12,6 +12,7 @@ namespace QuoteMan_b0._1.Core.Models
         public Vehicle Vehicle { get; set; }
         public StatusType Status { get; set; }
         public DateTime DateGiven { get; set; }
+        public DateTime DateModified { get; set; }
         public string Description { get; set; }
 
         public int CustomerId { get; set; }

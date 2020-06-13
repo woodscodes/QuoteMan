@@ -13,11 +13,13 @@ namespace QuoteMan_b0._1.Data.Infrastructure.Repositories.InMemory
 
         public InMemoryCustomerRepo()
         {
+
             _customers = new List<Customer>
             {
-                new Customer { CustomerId = 1, Email = "bleh@abc.net", Title = Core.Models.Enums.TitleType.Mr, FirstName = "Bob", LastName = "Smith", PhoneNumber = "123456789" },
-                new Customer { CustomerId = 2, Email = "bleh@def.net", Title = Core.Models.Enums.TitleType.Ms, FirstName = "Lucy", LastName = "Lou", PhoneNumber = "123456789" },
-                new Customer { CustomerId = 3, Email = "bleh@ghi.net", Title = Core.Models.Enums.TitleType.Dr, FirstName = "Fred", LastName = "Octagon", PhoneNumber = "123456789" }
+                new Customer { CustomerId = 1, Email = "bleh@abc.net", Title = Core.Models.Enums.TitleType.Mr, FirstName = "Bob", LastName = "Smith", PhoneNumber = "07833373407" },
+                new Customer { CustomerId = 2, Email = "bleh@def.net", Title = Core.Models.Enums.TitleType.Ms, FirstName = "Lucy", LastName = "Lou", PhoneNumber = "07833373407" },
+                new Customer { CustomerId = 3, Email = "bleh@ghi.net", Title = Core.Models.Enums.TitleType.Dr, FirstName = "Fred", LastName = "Octagon", PhoneNumber = "07833373407" },
+                new Customer { CustomerId = 4, Email = "bleh@jkh.net", Title = Core.Models.Enums.TitleType.Mr, FirstName = "Henry", LastName = "Smith", PhoneNumber = "07833373407" }
             };
         }
 
@@ -49,8 +51,11 @@ namespace QuoteMan_b0._1.Data.Infrastructure.Repositories.InMemory
 
         public IEnumerable<Customer> GetCustomersByName(string name = null)
         {
+            if (name != null)
+                name = name.ToUpper();
+
             return from c in _customers
-                   where string.IsNullOrEmpty(name) || c.LastName.StartsWith(name) || c.FirstName.StartsWith(name)
+                   where string.IsNullOrEmpty(name) || c.LastName.ToUpper().StartsWith(name) || c.FirstName.ToUpper().StartsWith(name)
                    orderby c.LastName descending
                    select c;
         }

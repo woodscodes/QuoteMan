@@ -25,11 +25,43 @@ namespace QuoteMan_b0._1.Data.Infrastructure.Repositories.InMemory
                     Vehicle = new Vehicle { Make = "Toyota", Model = "Landcruiser"}
                 },
             };
+
+        }
+
+        public int CommitChanges()
+        {
+            return 0;
+        }
+
+        public Quote GetQuoteById(int id)
+        {
+            return _quotes.SingleOrDefault(q => q.QuoteId == id);
         }
 
         public IEnumerable<Quote> GetQuotesByCustomerId(int id)
         {
             return _quotes.Where(q => q.CustomerId == id).OrderByDescending(q => q.DateGiven);
+        }
+
+        public Quote UpdateQuote(Quote quote)
+        {
+            var quoteToUpdate = _quotes.Find(q => q.QuoteId == quote.QuoteId);
+
+            if (quoteToUpdate == null)
+                throw new InvalidOperationException("Quote not found");
+            else
+            {
+                quoteToUpdate.Description = quote.Description;
+                quoteToUpdate.Vehicle.Make = quote.Vehicle.Make;
+                quoteToUpdate.Vehicle.Model = quote.Vehicle.Model;
+                quoteToUpdate.Price = quote.Price;
+                quoteToUpdate.DateGiven = quote.DateGiven;
+                quoteToUpdate.Status = quote.Status;
+                quoteToUpdate.CustomerId = quote.CustomerId;
+                quoteToUpdate.DateModified = DateTime.Now;
+
+                return quoteToUpdate;
+            }            
         }
     }
 }

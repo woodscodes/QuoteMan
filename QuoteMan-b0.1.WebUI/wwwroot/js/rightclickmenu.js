@@ -4,8 +4,8 @@ const contextMenu = document.querySelector('#context-menu-display');
 function displayAtMousePointer(event) {
     'use strict';
 
-    let xCoord = event.clientX;
-    let yCoord = event.clientY;
+    const xCoord = event.clientX;
+    const yCoord = event.clientY;
 
     contextMenu.style.top = `${yCoord}px`;
     contextMenu.style.left = `${xCoord}px`;
@@ -40,9 +40,11 @@ function setIdRoute(value) {
     'use strict';
     const editCustomerAnchor = document.getElementById('route-to-edit');
     const viewPipelineAnchor = document.getElementById('route-to-pipeline');
+    const deleteAnchor = document.getElementById('route-to-delete');
 
-    editCustomerAnchor.href = `./Edit/${value}`;
-    viewPipelineAnchor.href = `./Quotes/${value}`;
+    editCustomerAnchor.href = `/Customers/Edit/${value}`;
+    viewPipelineAnchor.href = `/Customers/Quotes/${value}`;
+    deleteAnchor.href = `/Customers/Delete/${value}`;
 }
 
 function setNameOfCustomer (value) {

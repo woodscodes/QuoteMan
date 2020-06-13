@@ -32,7 +32,8 @@
 
 .context-menu {
     border: 1px solid #3F5454;
-    background-color: #F5FFFF;
+    /*background-color: #F5FFFF;*/
+    background: rgba(244,252,255, 0.9); 
     border-radius: 5px;
     width: auto;
     position: absolute;
@@ -75,7 +76,6 @@
             text-align: center;
             width: 15px;
         }
-
 
 
 
