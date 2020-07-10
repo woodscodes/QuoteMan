@@ -29,6 +29,7 @@ namespace QuoteMan_b0._1.WebUI
             services.AddSingleton<IQuoteData, InMemoryQuoteRepo>();
 
             services.AddRazorPages();
+            services.AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -55,6 +56,8 @@ namespace QuoteMan_b0._1.WebUI
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorPages();
+                endpoints.MapControllerRoute("default",
+                    "{controller}/{action}/{id?}");
             });
         }
     }

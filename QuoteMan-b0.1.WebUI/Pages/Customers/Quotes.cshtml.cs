@@ -24,11 +24,17 @@ namespace QuoteMan_b0._1.WebUI.Pages.Customers
             _quoteData = quoteData;
         }
 
-        public void OnGet(int customerId)
+        public IActionResult OnGet(int customerId)
         {
             Customer = _customerData.FindCustomerById(customerId);
-            Quotes = _quoteData.GetQuotesByCustomerId(customerId);
-            Message = MessageToDisplay(Quotes);
+            if (Customer == null)
+                return RedirectToPage("/Shared/_NotFound");
+            else
+            {
+                Quotes = _quoteData.GetQuotesByCustomerId(customerId);
+                Message = MessageToDisplay(Quotes);
+                return Page();
+            }
         }
 
         public string MessageToDisplay(IEnumerable<Quote> quotes)

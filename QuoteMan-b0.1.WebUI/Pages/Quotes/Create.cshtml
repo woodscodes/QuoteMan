@@ -1,8 +1,101 @@
-﻿@page
+﻿@page "{customerId:int?}"
 @model QuoteMan_b0._1.WebUI.Pages.Quotes.CreateModel
 @{
     ViewData["Title"] = "Create";
 }
 
 <h1>Create</h1>
+<form action="/" method="get">
+    <div class="form-group dont-display">
+        <label>Search here for a customer, you want to create a new customer click add</label>
+        <div class="input-group">
+            <input class="form-control" type="search" asp-for="SearchTerm" />
+            <span class="input-group-btn">
+                <button class="btn btn-default">
+                    <i class="fas fa-search"></i>
+                </button>
+            </span>
+            <span class="input-group-btn">
+                <button class="btn btn-default">
+                    <i class="fas fa-user-plus"></i>
+                </button>
+            </span>
+        </div>
+        <!-- search form for cx goes here (or is populated by cx being passed in) -->
+<!-- is invisible if there is a parameter for customer id present -->
+<!-- message in h4 changes if there is a customer present (user don't know that its there) -->
 
+    </div>
+</form> 
+
+<form action="/" method="post">
+    <input type="hidden" asp-for="Quote.QuoteId" />
+
+    <!-- this pops out if we search for a customer or if we click add new (in input group above -->
+    <!-- maybe we could move this to a viewcomponent? Can be used here, in create and edit-->
+    <div class="hidden-customer-form dont-display">
+        <div class="form-group">
+            <label asp-for="Customer.Title"></label>
+            <select class="form-control" asp-for="Customer.Title"></select>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Customer.FirstName"></label>
+            <div class="input-group">
+                <input class="form-control" asp-for="Customer.FirstName" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Customer.LastName"></label>
+            <div class="input-group">
+                <input class="form-control" asp-for="Customer.LastName" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Customer.Email"></label>
+            <div class="input-group">
+                <input type="email" class="form-control" asp-for="Customer.Email" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Customer.PhoneNumber"></label>
+            <div class="input-group">
+                <input class="form-control" asp-for="Customer.PhoneNumber" />
+            </div>
+        </div>
+    </div>-->
+    <!-- add this stuff to a view component? -->
+    <div class="form-group">
+        <label asp-for="Quote.Description"></label>
+        <div class="input-group">
+            <textarea class="form-control" asp-for="Quote.Description"></textarea>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Quote.Vehicle.Make"></label>
+        <div class="input-group">
+            <input class="form-control" asp-for="Quote.Vehicle.Make" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Quote.Vehicle.Model"></label>
+        <div class="input-group">
+            <input class="form-control" asp-for="Quote.Vehicle.Model" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Quote.Price"></label>
+        <div class="input-group">
+            <input class="form-control" asp-for="Quote.Price" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="Quote.Status"></label>
+        <select class="form-control" asp-for="Quote.Status"><option>Hi</option></select>
+    </div>
+
+    <button class="btn btn-primary" type="submit">Save</button>
+</form>

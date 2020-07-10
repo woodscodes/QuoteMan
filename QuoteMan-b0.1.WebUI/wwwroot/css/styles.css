@@ -22,6 +22,10 @@
     padding-bottom: 3px;
 }
 
+.not-found-h {
+    text-align: center;
+}
+
 .card-subtitle {
     margin: 0;
 }
@@ -77,5 +81,7 @@
             width: 15px;
         }
 
-
+.hidden-customer-form {
+    border: 1px solid #000;
+}
 

@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuoteMan-b0.1.WebUI", "QuoteMan-b0.1.WebUI\QuoteMan-b0.1.WebUI.csproj", "{8244B330-D14D-4B7B-818D-70567450690C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuoteMan-b0.1.WebUI", "QuoteMan-b0.1.WebUI\QuoteMan-b0.1.WebUI.csproj", "{8244B330-D14D-4B7B-818D-70567450690C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuoteMan-b0.1.Core", "QuoteMan-b0.1.Core\QuoteMan-b0.1.Core.csproj", "{D89B6680-126A-4220-9D98-A1F7EC15ABEA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuoteMan-b0.1.Core", "QuoteMan-b0.1.Core\QuoteMan-b0.1.Core.csproj", "{D89B6680-126A-4220-9D98-A1F7EC15ABEA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuoteMan-b0.1.Data", "QuoteMan-b0.1.Data\QuoteMan-b0.1.Data.csproj", "{CFC56CB4-2B93-44B7-8BF8-6FC64B5FDBB4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuoteMan-b0.1.Data", "QuoteMan-b0.1.Data\QuoteMan-b0.1.Data.csproj", "{CFC56CB4-2B93-44B7-8BF8-6FC64B5FDBB4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

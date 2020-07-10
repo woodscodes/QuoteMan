@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace QuoteMan_b0._1.Data.Infrastructure.Contracts
 {
