@@ -10,6 +10,8 @@ namespace QuoteMan_b0._1.Data.Infrastructure.Contracts
         IEnumerable<Quote> GetQuotesByCustomerId(int id);
         Quote GetQuoteById(int id);
         Quote UpdateQuote(Quote quote);
+        void CreateQuote(Quote quote);
+        void DeleteQuote(int id);
         int CommitChanges();
     }
 }

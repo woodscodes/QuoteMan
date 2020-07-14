@@ -12,6 +12,7 @@ using Microsoft.Extensions.Hosting;
 using QuoteMan_b0._1.Data;
 using QuoteMan_b0._1.Data.Infrastructure.Contracts;
 using QuoteMan_b0._1.Data.Infrastructure.Repositories.InMemory;
+using QuoteMan_b0._1.Data.Infrastructure.Repositories.SQL;
 
 namespace QuoteMan_b0._1.WebUI
 {
@@ -32,8 +33,8 @@ namespace QuoteMan_b0._1.WebUI
                 options.UseSqlServer(Configuration.GetConnectionString("QuoteManConnectionString"));
             });
 
-            services.AddSingleton<ICustomerData, InMemoryCustomerRepo>();
-            services.AddSingleton<IQuoteData, InMemoryQuoteRepo>();
+            services.AddScoped<ICustomerData, SQLCustomerRepo>();
+            services.AddSingleton<IQuoteData, SQLQuotesRepo>();
 
             services.AddRazorPages();
             services.AddMvc();

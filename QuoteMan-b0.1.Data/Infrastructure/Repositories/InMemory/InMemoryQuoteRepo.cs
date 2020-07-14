@@ -33,6 +33,16 @@ namespace QuoteMan_b0._1.Data.Infrastructure.Repositories.InMemory
             return 0;
         }
 
+        public void CreateQuote(Quote quote)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DeleteQuote(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         public Quote GetQuoteById(int id)
         {
             return _quotes.SingleOrDefault(q => q.QuoteId == id);
