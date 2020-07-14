@@ -34,7 +34,7 @@ namespace QuoteMan_b0._1.WebUI
             });
 
             services.AddScoped<ICustomerData, SQLCustomerRepo>();
-            services.AddSingleton<IQuoteData, SQLQuotesRepo>();
+            services.AddScoped<IQuoteData, SQLQuotesRepo>();
 
             services.AddRazorPages();
             services.AddMvc();

@@ -14,7 +14,16 @@ namespace QuoteMan_b0._1.Core.Models
         [Column(TypeName = "decimal(18,4)")]
         public decimal Price { get; set; }
 
-        public Vehicle Vehicle { get; set; }
+        [Required]
+        [MinLength(3)]
+        [MaxLength(15)]
+        public string VehicleMake { get; set; }
+        
+        [Required]
+        [MinLength(3)]
+        [MaxLength(15)]
+        public string VehicleModel { get; set; }
+
         public StatusType Status { get; set; }
         public DateTime DateGiven { get; set; }
         public DateTime DateModified { get; set; }

@@ -16,13 +16,13 @@ namespace QuoteMan_b0._1.Data.Infrastructure.Repositories.InMemory
             _quotes = new List<Quote>
             {
                 new Quote { QuoteId = 1, Price = 350.0m, Status = Core.Models.Enums.StatusType.Open, CustomerId = 1, DateGiven = new DateTime(2020, 05, 08), Description = "Bleheheheheheh",
-                    Vehicle = new Vehicle { Make = "Honda", Model = "Civic"}
+                    VehicleMake = "Honda", VehicleModel = "Civic"
                 },
                 new Quote { QuoteId = 2, Price = 250.0m, Status = Core.Models.Enums.StatusType.Closed, CustomerId = 1, DateGiven = new DateTime(2019, 12, 22), Description = "Bleheheheheheh",
-                    Vehicle = new Vehicle { Make = "Honda", Model = "Civic"}
+                    VehicleMake = "Honda", VehicleModel = "Civic"
                 },
                 new Quote { QuoteId = 3, Price = 750.50m, Status = Core.Models.Enums.StatusType.Open, CustomerId = 3, DateGiven = new DateTime(2020, 05, 09), Description = "Bleheheheheheh",
-                    Vehicle = new Vehicle { Make = "Toyota", Model = "Landcruiser"}
+                    VehicleMake = "Toyota", VehicleModel = "Landcruiser"
                 },
             };
 
@@ -62,8 +62,8 @@ namespace QuoteMan_b0._1.Data.Infrastructure.Repositories.InMemory
             else
             {
                 quoteToUpdate.Description = quote.Description;
-                quoteToUpdate.Vehicle.Make = quote.Vehicle.Make;
-                quoteToUpdate.Vehicle.Model = quote.Vehicle.Model;
+                quoteToUpdate.VehicleMake = quote.VehicleMake;
+                quoteToUpdate.VehicleModel = quote.VehicleModel;
                 quoteToUpdate.Price = quote.Price;
                 quoteToUpdate.DateGiven = quote.DateGiven;
                 quoteToUpdate.Status = quote.Status;

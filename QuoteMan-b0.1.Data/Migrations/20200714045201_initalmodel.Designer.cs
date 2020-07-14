@@ -10,8 +10,8 @@ using QuoteMan_b0._1.Data;
 namespace QuoteMan_b0._1.Data.Migrations
 {
     [DbContext(typeof(QuoteManContext))]
-    [Migration("20200710022020_initial_commit")]
-    partial class initial_commit
+    [Migration("20200714045201_initalmodel")]
+    partial class initalmodel
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -83,38 +83,21 @@ namespace QuoteMan_b0._1.Data.Migrations
                     b.Property<int>("Status")
                         .HasColumnType("int");
 
-                    b.Property<int?>("VehicleId")
-                        .HasColumnType("int");
+                    b.Property<string>("VehicleMake")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(15)")
+                        .HasMaxLength(15);
+
+                    b.Property<string>("VehicleModel")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(15)")
+                        .HasMaxLength(15);
 
                     b.HasKey("QuoteId");
 
                     b.HasIndex("CustomerId");
 
-                    b.HasIndex("VehicleId");
-
                     b.ToTable("Quotes");
-                });
-
-            modelBuilder.Entity("QuoteMan_b0._1.Core.Models.Vehicle", b =>
-                {
-                    b.Property<int>("VehicleId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Make")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(25)")
-                        .HasMaxLength(25);
-
-                    b.Property<string>("Model")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(25)")
-                        .HasMaxLength(25);
-
-                    b.HasKey("VehicleId");
-
-                    b.ToTable("Vehicle");
                 });
 
             modelBuilder.Entity("QuoteMan_b0._1.Core.Models.Quote", b =>
@@ -124,10 +107,6 @@ namespace QuoteMan_b0._1.Data.Migrations
                         .HasForeignKey("CustomerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.HasOne("QuoteMan_b0._1.Core.Models.Vehicle", "Vehicle")
-                        .WithMany()
-                        .HasForeignKey("VehicleId");
                 });
 #pragma warning restore 612, 618
         }

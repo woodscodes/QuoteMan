@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace QuoteMan_b0._1.Data.Migrations
 {
-    public partial class initial_commit : Migration
+    public partial class initalmodel : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -25,27 +25,14 @@ namespace QuoteMan_b0._1.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Vehicle",
-                columns: table => new
-                {
-                    VehicleId = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Make = table.Column<string>(maxLength: 25, nullable: false),
-                    Model = table.Column<string>(maxLength: 25, nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Vehicle", x => x.VehicleId);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Quotes",
                 columns: table => new
                 {
                     QuoteId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Price = table.Column<decimal>(type: "decimal(18,4)", nullable: false),
-                    VehicleId = table.Column<int>(nullable: true),
+                    VehicleMake = table.Column<string>(maxLength: 15, nullable: false),
+                    VehicleModel = table.Column<string>(maxLength: 15, nullable: false),
                     Status = table.Column<int>(nullable: false),
                     DateGiven = table.Column<DateTime>(nullable: false),
                     DateModified = table.Column<DateTime>(nullable: false),
@@ -61,23 +48,12 @@ namespace QuoteMan_b0._1.Data.Migrations
                         principalTable: "Customers",
                         principalColumn: "CustomerId",
                         onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Quotes_Vehicle_VehicleId",
-                        column: x => x.VehicleId,
-                        principalTable: "Vehicle",
-                        principalColumn: "VehicleId",
-                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Quotes_CustomerId",
                 table: "Quotes",
                 column: "CustomerId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Quotes_VehicleId",
-                table: "Quotes",
-                column: "VehicleId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -87,9 +63,6 @@ namespace QuoteMan_b0._1.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "Customers");
-
-            migrationBuilder.DropTable(
-                name: "Vehicle");
         }
     }
 }
