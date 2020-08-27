@@ -5,8 +5,9 @@
 }
 
 <h1>Create</h1>
-<form action="/" method="get">
-    <div class="form-group dont-display">
+@if (Model.Customer.CustomerId == 0)
+{
+    <div class="form-group">
         <label>Search here for a customer, you want to create a new customer click add</label>
         <div class="input-group">
             <input class="form-control" type="search" asp-for="SearchTerm" />
@@ -16,24 +17,42 @@
                 </button>
             </span>
             <span class="input-group-btn">
-                <button class="btn btn-default">
+                <button id="add-customer-button" class="btn btn-default">
                     <i class="fas fa-user-plus"></i>
                 </button>
             </span>
         </div>
-        <!-- search form for cx goes here (or is populated by cx being passed in) -->
-<!-- is invisible if there is a parameter for customer id present -->
-<!-- message in h4 changes if there is a customer present (user don't know that its there) -->
-
     </div>
-</form> 
+
+}
+else
+{
+    <div class="row">
+        <div class="col-md-4">
+            <ul class="list-group-flush">
+                <li class="list-group-item">@($"{Model.Customer.Title} {Model.Customer.FirstName} {Model.Customer.LastName}")</li>
+                <li class="list-group-item">@Model.Customer.Email</li>
+                <li class="list-group-item">@Model.Customer.PhoneNumber</li>
+            </ul>
+        </div>
+    </div>
+}
+
+<!--after fetched will go here-->
+<div class="row">
+    <div class="col-md-4 dont-display">
+        <ul class="list-group-flush">
+            <li class="list-group-item"></li>
+            <li class="list-group-item"></li>
+            <li class="list-group-item"></li>
+        </ul>
+    </div>
+</div>
 
 <form action="/" method="post">
     <input type="hidden" asp-for="Quote.QuoteId" />
-
-    <!-- this pops out if we search for a customer or if we click add new (in input group above -->
-    <!-- maybe we could move this to a viewcomponent? Can be used here, in create and edit-->
-    <div class="hidden-customer-form dont-display">
+    <input type="hidden" asp-for="Customer.CustomerId" />
+    <div id="new-customer-form" class="dont-display">
         <div class="form-group">
             <label asp-for="Customer.Title"></label>
             <select class="form-control" asp-for="Customer.Title"></select>
@@ -63,7 +82,7 @@
                 <input class="form-control" asp-for="Customer.PhoneNumber" />
             </div>
         </div>
-    </div>-->
+    </div>
     <!-- add this stuff to a view component? -->
     <div class="form-group">
         <label asp-for="Quote.Description"></label>
@@ -99,3 +118,6 @@
 
     <button class="btn btn-primary" type="submit">Save</button>
 </form>
+
+<script src="~/js/popoutcustomerform.js"></script>
+<script src="~/js/findcustomer.js"></script>

@@ -37,7 +37,7 @@ namespace QuoteMan_b0._1.WebUI.Pages.Quotes
             if (Quote == null)
                 return RedirectToPage("/Shared/_NotFound");
 
-            Quote.Customer = _customerData.FindCustomerById(Quote.CustomerId);
+            Quote.Customer = _customerData.GetCustomerById(Quote.CustomerId);
 
             if (Quote.Customer == null)
                 return RedirectToPage("/Shared/_NotFound");

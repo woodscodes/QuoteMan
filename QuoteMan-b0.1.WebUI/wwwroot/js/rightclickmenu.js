@@ -11,7 +11,7 @@ function displayAtMousePointer(event) {
     contextMenu.style.left = `${xCoord}px`;
 }
 
-function showContextMenu() {
+function toggleContextMenu() {
     'use strict';
 
     if (contextMenu.classList.contains('dont-display')) {
@@ -58,13 +58,13 @@ for (const row of contextMenuButtons) {
     'use strict';
     row.addEventListener('contextmenu', (ev) => {
         ev.preventDefault();
-        setCustomerId(row);
-        showContextMenu();
+        setCustomerId(row);        
+        toggleContextMenu();
         displayAtMousePointer(ev);
         return false;
     })
 }
 
 document.addEventListener('click', () => {
-    contextMenu.classList.add('dont-display');
+    toggleContextMenu();
 })

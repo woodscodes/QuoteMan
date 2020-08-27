@@ -30,13 +30,13 @@ namespace QuoteMan_b0._1.Data.Infrastructure.Repositories.SQL
 
         public void DeleteCustomer(int id)
         {
-            var customerToDelete = FindCustomerById(id);
+            var customerToDelete = GetCustomerById(id);
 
             if (customerToDelete != null)
                 _context.Customers.Remove(customerToDelete);
         }
 
-        public Customer FindCustomerById(int id)
+        public Customer GetCustomerById(int id)
         {
             return _context.Customers.Find(id);
         }

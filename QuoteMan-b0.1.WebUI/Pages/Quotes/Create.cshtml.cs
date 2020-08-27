@@ -31,13 +31,14 @@ namespace QuoteMan_b0._1.WebUI.Pages.Quotes
             _htmlHelper = htmlHelper;
         }
 
-        public void OnGet()
+        public void OnGet(int customerId)
         {
             Quote = new Quote();
-            Customer = new Customer();
-            
 
-            // needs to be done with ajax -> find the customer using ajax and save the customer too
+            if (customerId > 0)
+                Customer = _customerData.GetCustomerById(customerId);
+            else
+                Customer = new Customer();    
         }
 
     }

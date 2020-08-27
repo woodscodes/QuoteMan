@@ -45,7 +45,7 @@ namespace QuoteMan_b0._1.Data.Infrastructure.Repositories.InMemory
                 _customers.Remove(customerToDelete);
         }
 
-        public Customer FindCustomerById(int id)
+        public Customer GetCustomerById(int id)
         {
             return _customers.SingleOrDefault(c => c.CustomerId == id);
         }

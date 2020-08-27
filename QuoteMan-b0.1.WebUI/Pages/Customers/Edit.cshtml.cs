@@ -29,7 +29,7 @@ namespace QuoteMan_b0._1.WebUI.Pages.Customers
         public IActionResult OnGet(int customerId)
         {
             Titles = _htmlHelper.GetEnumSelectList<TitleType>();
-            Customer = _customerData.FindCustomerById(customerId);
+            Customer = _customerData.GetCustomerById(customerId);
 
             if (Customer != null)
                 return Page();

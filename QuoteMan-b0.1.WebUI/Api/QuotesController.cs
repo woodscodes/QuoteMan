@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using QuoteMan_b0._1.Core.Models;
 using QuoteMan_b0._1.Data.Infrastructure.Contracts;
+using QuoteMan_b0._1.Data.Infrastructure.Repositories.SQL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +16,8 @@ namespace QuoteMan_b0._1.WebUI.Api
 
         public QuotesController(IQuoteData quoteData)
         {
-            _quoteData = quoteData;
+            _quoteData = quoteData ??
+                throw new ArgumentNullException(nameof(SQLQuotesRepo));
         }
 
         [HttpGet]

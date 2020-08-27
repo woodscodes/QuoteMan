@@ -85,3 +85,15 @@
     border: 1px solid #000;
 }
 
+#new-customer-form {
+    border: 1px solid rgb(7,66,92);
+    border-radius: 15px;
+    box-shadow: 5px 5px 5px 1px rgba(86,183,225, .2);
+    margin: 15px;
+    padding: 5px;
+}
+
+.new-customer-form .form-group {
+    padding-left: 2px;
+    padding-right: 2px;
+}
